@@ -24,7 +24,7 @@
     "tag-release": "npm run -s changelog | git tag -a v$(npm run -s print-version-from-package-json) --file - --cleanup=verbatim",
     "lint": "standard --fix index.js lib/* test/*.js",
     "print-version-from-package-json": "node -e \"process.stdout.write(require('./package.json').version)\"",
-    "test": "npm run lint && export SANDBOX=test/sandbox && rm -rf $SANDBOX && mkdir $SANDBOX && tape test/*.js"
+    "test": "export SANDBOX=test/sandbox && rm -rf $SANDBOX && mkdir $SANDBOX && tape test/*.js"
   },
   "author": "Fergus McDowall",
   "license": "MIT",
@@ -33,9 +33,9 @@
   },
   "homepage": "https://github.com/fergiemcdowall/search-index-searcher#readme",
   "dependencies": {
-    "intersect-arrays-to-stream": "^0.0.3",
+    "intersect-arrays-to-stream": "0.0.3",
     "js-logger": "^1.4.1",
-    "levelup": "^1.3.9",
+    "level": "^4.0.0",
     "lodash.difference": "^4.5.0",
     "lodash.intersection": "^4.4.0",
     "lodash.sortedindexof": "^4.1.0",
@@ -43,17 +43,13 @@
     "lodash.union": "^4.6.0",
     "lodash.uniq": "^4.5.0",
     "ngraminator": "0.0.1",
-    "stopword": "^0.1.8"
-  },
-  "optionalDependencies": {
-    "leveldown": "^1.6.0"
+    "stopword": "^0.1.10"
   },
   "devDependencies": {
     "commitizen": "^2.9.6",
     "conventional-github-releaser": "1.1.13",
-    "level-out": "0.0.7",
     "number-to-words": "^1.2.3",
-    "search-index-adder": "*",
+    "search-index-adder": "darobin/search-index-adder#update-level",
     "standard": "^9.0.1",
     "standard-changelog": "^1.0.1",
     "tape": "^4.6.3",
